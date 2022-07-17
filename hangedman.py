@@ -23,6 +23,10 @@ def game (word):
     while (not(all_found) and fails < MAX_FAILS + 1):
          # Nettoyage de l'écran
         os.system('cls' if os.name == 'nt' else 'clear')
+        print("Bienvenue dans le Jeu du pendu.\n")
+        print("Pour jouer c'est simple : un mot a été généré aléatoirement, votre but est de trouver les lettres qui le composent.")
+        print("Note : Les mots peuvent être des verbes conjugués.")
+        print("\n ##########\n")
 
         # Affichage de la "grille" de lettres
         print("Mot :")
