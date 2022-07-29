@@ -10,15 +10,25 @@ class Card :
 		'A': 'Ace'
 	}
 
+	symbols = {
+		"clubs": "♣",
+		"hearts": "♥",
+		"diamonds":"♦",
+		"spades": "♠"
+	}
+
 	def __init__ (self, value: str, suit: str) :
 		self.value = value
-		self.suit = suit
+		self.suit = suit.lower()
 
 	def display (self) :
 		if self.value in ['K', 'Q', 'J', 'A']:
 			return f"{self.faces[self.value]} of {self.suit.capitalize()}"
 		else :
 			return f"{self.value} of {self.suit.capitalize()}"
+
+	def display_symbol (self):
+		return f"{self.symbols[self.suit]} {self.value}"
 
 class Deck :
 	""" A class to represent a deck of playing cards 
@@ -32,9 +42,11 @@ class Deck :
 		for c in self.cards :
 			print(c.display())
 
+	def show_deck_symbols (self):
+		for c in self.cards :
+			print(c.display_symbol())
+
 	def add_card_above (self, card: Card) :
-		print(self)
-		print(card)
 		self.cards.append(card)
 		self.nb = len(self.cards)
 		return self
@@ -45,14 +57,22 @@ class Deck :
 		return self
 
 	def draw_above (self) :
-		result = self.cards.pop()
-		self.nb = len(self.cards)
-		return result
+		if self.nb > 0 :
+			result = self.cards.pop()
+			self.nb = len(self.cards)
+			print(self.nb)
+			# return self
+			return result
+		else :
+			return None
 
 	def draw_below (self) :
-		result = self.cards.pop(0)
-		self.nb = len(self.cards)
-		return result
+		if self.nb > 0 :
+			result = self.cards.pop(0)
+			self.nb = len(self.cards)
+			return result
+		else :
+			return None
 
 	def shuffle (self) :
 		cards_result = []
@@ -63,8 +83,7 @@ class Deck :
 		self.cards = cards_result
 		return self
 
-
-def generate_deck ():
+def make_sorted_deck () :
 	deck = Deck()
 	values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 	suits = ["hearts", "spades", "diamonds", "clubs"]
@@ -73,4 +92,9 @@ def generate_deck ():
 		for v in values :
 			deck.add_card_above(Card(v, s))
 
+	return deck
+
+def make_shuffled_deck () :
+	deck = make_sorted_deck()
+	deck.shuffle()
 	return deck
