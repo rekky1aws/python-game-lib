@@ -30,6 +30,7 @@ class Card :
 	def display_symbol (self):
 		return f"{self.symbols[self.suit]} {self.value}"
 
+
 class Deck :
 	""" A class to represent a deck of playing cards 
 	cards[0] is first card on the front side => cards[len(cards) - 1] is the first card on the back side
@@ -60,8 +61,6 @@ class Deck :
 		if self.nb > 0 :
 			result = self.cards.pop()
 			self.nb = len(self.cards)
-			print(self.nb)
-			# return self
 			return result
 		else :
 			return None
