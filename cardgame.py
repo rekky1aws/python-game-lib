@@ -3,11 +3,18 @@ import random
 class Card :
 	""" A class to represent playing cards """
 
+	faces_full = {
+		13: 'King',
+		12: 'Queen',
+		11: 'Jack',
+		1: 'Ace'
+	}
+
 	faces = {
-		'K': 'King',
-		'Q': 'Queen',
-		'J': 'Jack',
-		'A': 'Ace'
+		13: 'K',
+		12: 'Q',
+		11: 'J',
+		1: 'A'
 	}
 
 	symbols = {
@@ -22,13 +29,16 @@ class Card :
 		self.suit = suit.lower()
 
 	def display (self) :
-		if self.value in ['K', 'Q', 'J', 'A']:
-			return f"{self.faces[self.value]} of {self.suit.capitalize()}"
+		if self.value in [1, 11, 12, 13]:
+			return f"{self.faces_full[self.value]} of {self.suit.capitalize()}"
 		else :
 			return f"{self.value} of {self.suit.capitalize()}"
 
 	def display_symbol (self):
-		return f"{self.symbols[self.suit]} {self.value}"
+		if self.value in [1, 11, 12, 13]:
+			return f"{self.symbols[self.suit]} {self.faces[self.value]}"
+		else :
+			return f"{self.symbols[self.suit]} {self.value}"
 
 
 class Deck :
@@ -84,7 +94,7 @@ class Deck :
 
 def make_sorted_deck () :
 	deck = Deck()
-	values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+	values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 	suits = ["hearts", "spades", "diamonds", "clubs"]
 
 	for s in suits :
