@@ -45,7 +45,7 @@ class Deck :
 	""" A class to represent a deck of playing cards 
 	cards[0] is first card on the front side => cards[len(cards) - 1] is the first card on the back side
 	"""
-	def __init__(self, cards: Card = []) :
+	def __init__(self, cards = []) :
 		self.cards = cards
 		self.nb = len(cards)
 
@@ -106,4 +106,8 @@ def make_sorted_deck () :
 def make_shuffled_deck () :
 	deck = make_sorted_deck()
 	deck.shuffle()
+	return deck
+
+def make_empty_deck () :
+	deck = Deck([])
 	return deck
