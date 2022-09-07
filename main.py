@@ -10,10 +10,11 @@ def menu ():
 
 	print("\n Jeux Multi :")
 	print("  3 - Morpion")
-	# print(" 4 - Pierre Feuille Ciseaux")
-	# print(" 5 - Batonnets")
-	# print(" 6 - Snake")
-	# print(" 7 - Démineur")
+	print("  4 - Bataille (Cartes)")
+	# print(" 5 - Pierre Feuille Ciseaux")
+	# print(" 6 - Batonnets")
+	# print(" 7 - Snake")
+	# print(" 8 - Démineur")
 
 	print()
 	print(" 0 - Quitter\n")
@@ -30,15 +31,17 @@ while chx != 0:
 	print("\n------------------------\n")
 	if chx == 1:
 		import hangedman
-		print("> Appuyez sur entrée pour retourner au menu :", end=" ")
-		input()
+
 	elif chx == 2:
 		import moreless
-		print("> Appuyez sur entrée pour retourner au menu :", end=" ")
-		input()
+
 	elif chx == 3:
 		import tictactoe
-		print("> Appuyez sur entrée pour retourner au menu :", end=" ")
-		input()
+		
+	elif chx == 4:
+		import bataille
+
+	print("> Appuyez sur entrée pour retourner au menu :", end=" ")
+	input()
 
 print("Aurevoir !")
