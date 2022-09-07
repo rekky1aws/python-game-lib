@@ -30,7 +30,7 @@ while (player_a_deck.nb > 0 or player_a_memo.nb > 0) and (player_b_deck.nb > 0 o
 	input()
 
 	# Affichage des cartes restantes pour chaque joueur
-	print(f"\t\tJ1\t\tJ2\nEn main : {player_a_deck.nb}\t\t{player_b_deck.nb}\nEn mémo : {player_a_memo.nb}\t\t{player_b_memo.nb}")
+	print(f"\t\tJ1\t\tJ2\nEn main :   {player_a_deck.nb}\t\t  {player_b_deck.nb}\nEn mémo :   {player_a_memo.nb}\t\t  {player_b_memo.nb}\n")
 
 	# Si un deck est vide, on vérifie si le mémo correspondant a des cartes et on le transfère.
 	if player_a_deck.nb == 0:
